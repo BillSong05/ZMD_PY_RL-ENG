@@ -1,0 +1,6 @@
+name: default_vascular_project
+vessel_model: assets/models/vessels/VascuModel.stl
+robot_model: assets/models/robots/VascubotModel.stl
+scene_layout: four_view
+physics_backend: dummy
+compact_vascular_controls: true

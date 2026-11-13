@@ -1,0 +1,5 @@
+name: carotid_case
+vessel_model: assets/models/vessels/VascuModel.stl
+robot_model: assets/models/robots/VascubotModel.stl
+scene_layout: four_view
+physics_backend: dummy

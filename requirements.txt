@@ -1,0 +1,14 @@
+PyQt6==6.7.1
+pyvista==0.48.2
+pyvistaqt==0.11.4
+vtk==9.6.1
+numpy==1.26.4
+PyYAML
+scipy
+mujoco==2.3.7
+torch==2.3.1
+gymnasium==0.29.1
+stable-baselines3==2.3.2
+tensorboard>=2.14
+
+pyqt6-sip

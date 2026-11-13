@@ -1,0 +1,72 @@
+# 缓存、临时文件
+projects/cache/
+tmp/
+/outputs/
+/scripts/projects/
+/docs/
+/README_CN.md
+**/.*/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*$py.class
+
+# Conda/虚拟环境
+.venv/
+venv/
+env/
+
+# 配置和密钥
+.env
+.env.*
+*.key
+*.pem
+
+# 编辑器
+.idea/
+.vscode/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local/editor files
+.vscode/
+.idea/
+*.log
+
+# Claude/local workspace files
+.claude/
+
+# Development logs are local project history, not uploaded with source release
+ai_logs/
+
+# Generated or backup model files
+VascubotModel_original_backup.stl
+
+# VMTK 大型中间产物 — 可由 STL 重新生成（~50 min）
+projects/cache/VascuModel_capped.vtp
+projects/cache/_preprocessed.vtp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Cathsim 参考仓库:本地拉取作参考,不入库
+references/
+
+# 临时 debug 脚本
+debug/
+
+# 凸分解 hull 集 — 由 scripts/decompose_vessel.py 重建
+projects/cache/hulls/
+
+# VascuModel 碰撞 STL 衍生件
+projects/cache/VascuModel_collision.stl
+projects/cache/VascuModel_collision_open_backup.stl
+
+# MuJoCo 运行时日志
+MUJOCO_LOG.TXT
