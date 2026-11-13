@@ -56,14 +56,14 @@ conda activate zmd_pyqt
 python -m pip install -r requirements.txt
 ```
 
-The included STL models are referenced by [projects/default_project.yaml](projects/default_project.yaml). Before training or running inference, generate `projects/cache/VascuModel_centerline.vtp` with VMTK:
+The included STL models are referenced by [projects/default_project.yaml](projects/default_project.yaml). This repository also includes the precomputed centerline at `projects/cache/VascuModel_centerline.vtp`, which is required for training and inference, and the optional collision mesh at `projects/cache/VascuModel_collision.stl`. If you change the vessel model, regenerate the centerline with VMTK:
 
 ```powershell
 $env:ZMD_VMTK_PYTHON = "C:\path\to\vmtk-env\python.exe"
 python scripts/vmtk_extract_centerline.py
 ```
 
-Set `ZMD_VMTK_PYTHON` to the Python executable in an environment that has VMTK installed. The generated centerline and other files under `projects/cache/` are local artifacts and are not part of the repository. See the [VMTK centerline extraction script](scripts/vmtk_extract_centerline.py) for implementation details.
+Set `ZMD_VMTK_PYTHON` to the Python executable in an environment that has VMTK installed. The two supplied files under `projects/cache/` are tracked; intermediate preprocessing files, training checkpoints, logs, and other outputs remain local. See the [VMTK centerline extraction script](scripts/vmtk_extract_centerline.py) for implementation details.
 
 For the optional MuJoCo vessel-hull collision mode on Windows, use a checkout path containing only ASCII characters. The current mesh loader cannot open hull STL files when a parent directory contains Chinese characters.
 
@@ -95,12 +95,12 @@ Run inference with a trained checkpoint and export a rollout CSV:
 python scripts/infer_rl_cli.py projects/cache/rl/MODEL.zip --algo PPO --entry 0 --exit 2 --output projects/cache/rollout.csv
 ```
 
-Replace `MODEL.zip` with a checkpoint produced by training. Both CLI commands require the precomputed VMTK centerline. Use `--help` on either script for additional route, reward, speed, and output options.
+Replace `MODEL.zip` with a checkpoint produced by training. The centerline is already included; trained checkpoints are not. Use `--help` on either script for additional route, reward, speed, and output options.
 
 ## Data and reproducibility
 
 - Source code, configuration, and the two STL models under `assets/models/` are part of the repository.
-- Centerline files, collision meshes, model checkpoints, logs, CSV results, and temporary outputs are generated locally under `projects/cache/` or `outputs/`.
+- The supplied centerline and vessel collision mesh under `projects/cache/` are tracked. Model checkpoints, logs, CSV results, other cache files, and temporary outputs remain local under `projects/cache/` or `outputs/`.
 - The demonstration videos are stored outside this repository. Public video links can be added here after hosting them separately.
 - Model behavior depends on the route, reward settings, speed profile, seed, and checkpoint. Save these settings with each experiment when comparing results.
 

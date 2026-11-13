@@ -1,5 +1,7 @@
 # 缓存、临时文件
-projects/cache/
+/projects/cache/*
+!/projects/cache/VascuModel_centerline.vtp
+!/projects/cache/VascuModel_collision.stl
 tmp/
 /outputs/
 /scripts/projects/
@@ -64,8 +66,7 @@ debug/
 # 凸分解 hull 集 — 由 scripts/decompose_vessel.py 重建
 projects/cache/hulls/
 
-# VascuModel 碰撞 STL 衍生件
-projects/cache/VascuModel_collision.stl
+# VascuModel 碰撞 STL 备份
 projects/cache/VascuModel_collision_open_backup.stl
 
 # MuJoCo 运行时日志
